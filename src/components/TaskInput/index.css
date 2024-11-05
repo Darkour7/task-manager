@@ -1,0 +1,10 @@
+.task-input{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-input input{
+    width: 80%;
+    padding: 10px;
+}

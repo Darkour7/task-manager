@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./app.css";
+import { Header } from "./components/Header";
+import { LoadingScreen } from "./components/LoadingScreen";
+import { TaskInput } from "./components/TaskInput";
+import { TaskList } from "./components/TaskList";
+import { useTasks } from "./components/TaskList/hooks/useTasks";
+import { LoadingProvider } from "./context/LoadingContext";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const {
+    tasks,
+    addTask,
+    deleteTask,
+    updateTask,
+    completeAllTasks,
+    clearTasks,
+  } = useTasks();
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <LoadingProvider>
+      <Header />
+      <div className="layout">
+        <LoadingScreen />
+        <TaskInput addFn={addTask} />
+        <TaskList tasks={tasks} updateFn={updateTask} deleteFn={deleteTask} />
+        <div className="floating-actions">
+          <button disabled={tasks.length === 0} onClick={completeAllTasks}>
+            Complete all tasks
+          </button>
+          <button disabled={tasks.length === 0} onClick={clearTasks}>
+            Clear all tasks
+          </button>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </LoadingProvider>
+  );
 }
 
-export default App
+export default App;

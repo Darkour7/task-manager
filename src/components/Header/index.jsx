@@ -7,7 +7,7 @@ export function Header() {
         <span>Task Manager</span>
       </div>
       <div className="header-menu">
-        <span>GitHub</span>
+        <a href='https://github.com/Darkour7/task-manager.git' target='_blank'>GitHub</a>
       </div>
     </nav>
   );

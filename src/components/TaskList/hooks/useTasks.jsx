@@ -4,7 +4,9 @@ import { Task } from "../../../classes/Task";
 export function useTasks() {
   const [tasks, setTasks] = useState([new Task("Create Tasks")]);
 
-  useEffect(()=>{console.log("Adding task...", tasks)},[tasks])
+  useEffect(() => {
+    console.log("Adding task...", tasks);
+  }, [tasks]);
 
   const deleteTask = (id) => {
     const aux = [];
@@ -32,10 +34,17 @@ export function useTasks() {
     setTasks(aux);
   };
 
-  const addTask = (todo)=>{
-    const task = new Task(todo);    
-    setTasks((prev)=>[...prev, task]);
-  }
-  
-  return { tasks, addTask, deleteTask, updateTask, clearTasks, completeAllTasks };
+  const addTask = (todo) => {
+    const task = new Task(todo);
+    setTasks((prev) => [...prev, task]);
+  };
+
+  return {
+    tasks,
+    addTask,
+    deleteTask,
+    updateTask,
+    clearTasks,
+    completeAllTasks,
+  };
 }

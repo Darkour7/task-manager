@@ -10,7 +10,7 @@ export class Task {
   }
 
   toggleOnGoing() {
-    if(this.state === "COMPLETED") return;
+    if (this.state === "COMPLETED") return;
     if (this.state === "TODO") {
       this.state = "ONGOING";
       return;

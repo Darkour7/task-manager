@@ -1,4 +1,4 @@
-import './index.css';
+import "./index.css";
 
 export function Header() {
   return (
@@ -7,7 +7,9 @@ export function Header() {
         <span>Task Manager</span>
       </div>
       <div className="header-menu">
-        <a href='https://github.com/Darkour7/task-manager.git' target='_blank'>GitHub</a>
+        <a href="https://github.com/Darkour7/task-manager.git" target="_blank">
+          GitHub
+        </a>
       </div>
     </nav>
   );

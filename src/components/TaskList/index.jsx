@@ -1,7 +1,7 @@
-import './index.css';
+import "./index.css";
 import { Task } from "../Task";
 
-export function TaskList({deleteFn, updateFn, tasks}) {
+export function TaskList({ deleteFn, updateFn, tasks }) {
   return (
     <div className="task-list">
       {tasks.map((task) => (

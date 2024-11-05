@@ -1,6 +1,6 @@
 import { useContext, useRef } from "react";
 import { LoadingContext } from "../../context/LoadingContext";
-import './index.css'
+import "./index.css";
 
 export function TaskInput({ addFn }) {
   const inputRef = useRef();
